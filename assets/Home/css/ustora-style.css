@@ -1884,6 +1884,74 @@ body {
     margin-right: 8px;
 }
 
+.online-payment-page {
+    min-height: 520px;
+    padding: 55px 0;
+}
+
+.order-payment-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(30, 41, 59, .08);
+    margin: 0 auto;
+    max-width: 560px;
+    padding: 30px;
+}
+
+.order-payment-card h2 {
+    color: #172554;
+    margin-bottom: 18px;
+}
+
+.payment-demo-note {
+    background: #eff6ff;
+    border-radius: 8px;
+    color: #1d4ed8;
+    padding: 12px;
+}
+
+.payment-order-summary {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr auto;
+    margin: 24px 0;
+}
+
+.payment-order-summary span {
+    color: #64748b;
+}
+
+.payment-option {
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 14px;
+}
+
+.payment-option:has(input:checked) {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.payment-option i {
+    color: #2563eb;
+    width: 20px;
+}
+
+.payment-complete {
+    text-align: center;
+}
+
+.payment-complete > i {
+    color: #22c55e;
+    font-size: 58px;
+    margin-bottom: 16px;
+}
+
 @media only screen and (max-width: 991px) {
     .site-header {
         flex-wrap: wrap;

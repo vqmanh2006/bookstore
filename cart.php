@@ -44,6 +44,7 @@
 
     // Tạo đơn hàng
     if (isset($_GET['type']) && $_GET['type'] == 'payment') {
+        $paymentMethod = $_GET['method'] ?? 'offline';
         $sql = "SELECT * FROM carts WHERE Username = '" . $_SESSION['Username'] . "'";
         $carts = Database::GetData($sql);
 
@@ -62,6 +63,11 @@
 
             $sql = "DELETE FROM carts WHERE Username = '" . $_SESSION['Username'] . "'";
             Database::NonQuery($sql);
+
+            if ($paymentMethod === 'online') {
+                header('Location: ' . BASE_URL . '/online-payment.php?order-id=' . urlencode($orderID));
+                exit;
+            }
 
             $_SESSION['OrderSuccess'] = $orderID;
             header('Location: ' . BASE_URL . '/cart.php');
@@ -150,7 +156,8 @@
                                     </div>
                                     <?php
                                         if (isset($_SESSION['Username'])) {
-                                            echo '<a href="?type=payment" class="btn btn-lg btn-success">Tạo đơn hàng</a>';
+                                            echo '<a href="?type=payment&method=online" class="btn btn-lg btn-primary mr-2"><i class="fas fa-credit-card"></i> Thanh toán online</a>';
+                                            echo '<a href="?type=payment&method=offline" class="btn btn-lg btn-success">Đặt hàng, thanh toán sau</a>';
                                         }
                                     ?>
                                 </td>

@@ -1980,6 +1980,29 @@ body {
     padding-bottom: 14px;
 }
 
+.customer-order-header .badge {
+    border-radius: 999px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 12px;
+}
+
+.customer-order-header .badge-warning {
+    background: #f59e0b !important;
+    color: #fff !important;
+}
+
+.customer-order-header .badge-success {
+    background: #16a34a !important;
+    color: #fff !important;
+}
+
+.customer-order-header .badge-danger {
+    background: #dc2626 !important;
+    color: #fff !important;
+}
+
 .customer-order-header div,
 .edit-order-row div {
     display: flex;
@@ -2020,9 +2043,10 @@ body {
 }
 
 .order-cancel-button {
-    background: #fff1f2;
-    color: #e11d48 !important;
+    background: #dc2626 !important;
+    color: #fff !important;
     cursor: pointer;
+    font-size: inherit;
 }
 
 .inline-order-form {
@@ -2043,6 +2067,33 @@ body {
     border-radius: 6px;
     padding: 8px;
     width: 90px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .customer-order-card,
+    .edit-order-card {
+        padding: 16px;
+    }
+
+    .customer-order-header,
+    .customer-order-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .customer-order-footer > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .customer-order-items > div {
+        gap: 12px;
+    }
 }
 
 @media only screen and (max-width: 991px) {

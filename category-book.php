@@ -19,16 +19,16 @@
                     <div class="product-upper">
                         <img src="<?=$book['Thumbnail']?>" alt="" style="height: 320px">
                     </div>
-                    <h2><a href="<?='/book-details.php?id=' . $book['ISBN']?>"><?=$book['BookTitle']?></a></h2>
+                    <h2><a href="<?=BASE_URL . '/book-details.php?id=' . $book['ISBN']?>"><?=$book['BookTitle']?></a></h2>
                     <div class="product-carousel-price">
                         <ins><?=Helper::Currency($book['Price'])?></ins>
                     </div>
 
                     <div class="product-option-shop">
                         <?php if (isset($_SESSION['Role']) && $_SESSION['Role'] == 3) {?>
-                        <a class="add_to_cart_button" href="<?='/cart.php?id=' . $book['ISBN']?>"><i class="fas fa-cart-plus"></i></a>
+                        <a class="add_to_cart_button" href="<?=BASE_URL . '/cart.php?id=' . $book['ISBN']?>"><i class="fas fa-cart-plus"></i></a>
                         <?php }?>
-                        <a class="add_to_cart_button" href="<?='/book-details.php?id=' . $book['ISBN']?>">Chi tiết</a>
+                        <a class="add_to_cart_button" href="<?=BASE_URL . '/book-details.php?id=' . $book['ISBN']?>">Chi tiết</a>
                     </div>
                 </div>
             </div>

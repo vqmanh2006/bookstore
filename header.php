@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nhà sách trí tuệ</title>
-    <link rel="icon" href="/assets/img/favicon.png" />
+    <link rel="icon" href="<?=BASE_URL?>/assets/img/favicon.png" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600" rel="stylesheet">
@@ -69,13 +69,13 @@
             <div class="user-menu">
                 <ul>
                     <?php if (isset($_SESSION['Role']) && $_SESSION['Role'] == '1') {?>
-                    <li><a href="/admin/dashboard/index.php"><i class="fas fa-user-shield"></i> Trang quản trị</a></li>
+                    <li><a href="<?=BASE_URL?>/admin/dashboard/index.php"><i class="fas fa-user-shield"></i> Trang quản trị</a></li>
                     <?php }if (isset($_SESSION['Role'])) {?>
-                    <li><a href="/profile.php"><i class="fas fa-user"></i> <?=$_SESSION['DisplayName']?></a></li>
-                    <li><a href="/logout.php"><i class="fas fa-sign-in-alt"></i> Đăng xuất</a></li>
+                    <li><a href="<?=BASE_URL?>/profile.php"><i class="fas fa-user"></i> <?=$_SESSION['DisplayName']?></a></li>
+                    <li><a href="<?=BASE_URL?>/logout.php"><i class="fas fa-sign-in-alt"></i> Đăng xuất</a></li>
                     <?php } else {?>
-                    <li><a href="/sign.php"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
-                    <li><a href="/sign.php"><i class="fas fa-user"></i> Đăng ký</a></li>
+                    <li><a href="<?=BASE_URL?>/sign.php"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
+                    <li><a href="<?=BASE_URL?>/sign.php"><i class="fas fa-user"></i> Đăng ký</a></li>
                     <?php }?>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="logo">
-                        <h1><a href="./"><img src="/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="height: 60px"></a></h1>
+                        <h1><a href="<?=BASE_URL?>/"><img src="<?=BASE_URL?>/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="height: 60px"></a></h1>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                 ?>
                 <div class="col-sm-3">
                     <div class="shopping-item">
-                        <a href="<?='/cart.php'?>">Giỏ hàng - <span class="cart-amunt"><?=Helper::Currency($totalMoney)?></span>
+                        <a href="<?=BASE_URL?>/cart.php">Giỏ hàng - <span class="cart-amunt"><?=Helper::Currency($totalMoney)?></span>
                             <i class="fa fa-shopping-cart"></i>
                             <span class="product-count"><?=$countItem?></span>
                         </a>
@@ -132,8 +132,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="./">Trang chủ</a></li>
-                        <li><a href="<?='/shop.php'?>">Mua hàng</a></li>
-                        <li><a href="<?='/category-book.php'?>">Danh mục</a></li>
+                        <li><a href="<?=BASE_URL?>/shop.php">Mua hàng</a></li>
+                        <li><a href="<?=BASE_URL?>/category-book.php">Danh mục</a></li>
                     </ul>
                 </div>
             </div>

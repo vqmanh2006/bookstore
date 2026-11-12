@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông tin cá nhân</title>
-    <link rel="icon" href="/assets/img/favicon.png" />
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="<?=BASE_URL?>/assets/img/favicon.png" />
+    <link rel="stylesheet" href="<?=BASE_URL?>/assets/css/style.css">
 </head>
 
 <?php
@@ -76,8 +76,8 @@
             <div class="profile__group d-flex-center">
                 <div>
                     <input class="btn" name="submit" type="submit" value="Cập nhật">
-                    <a class="btn" href="/change-password.php">Đổi mật khẩu</a>
-                    <a class="btn" href="/">Trang chủ</a>
+                    <a class="btn" href="<?=BASE_URL?>/change-password.php">Đổi mật khẩu</a>
+                    <a class="btn" href="<?=BASE_URL?>/">Trang chủ</a>
                 </div>
             </div>
         </form>

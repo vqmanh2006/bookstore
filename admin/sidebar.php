@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="<?=ADMIN_URL?>/dasboard/" class="brand-link">
-        <img src="/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="width: 100%">
+        <img src="<?=BASE_URL?>/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="width: 100%">
     </a>
 
     <!-- Sidebar -->
@@ -8,7 +8,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <?php $avatar = empty($_SESSION['Avatar']) ? '/assets/img/user.png' : $_SESSION['Avatar'];?>
+                <?php $avatar = empty($_SESSION['Avatar']) ? BASE_URL . '/assets/img/user.png' : $_SESSION['Avatar'];?>
                 <img src="<?=$avatar?>" class="img-circle elevation-2" alt="User image">
             </div>
             <div class="info">
@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/" class="nav-link">
+                    <a href="<?=BASE_URL?>/" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Trang mua hàng</p>
                     </a>

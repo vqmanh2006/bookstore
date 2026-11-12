@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/sign.css" />
     <title>Đăng ký và đăng nhập</title>
-    <link rel="icon" href="/assets/img/favicon.png" />
+    <link rel="icon" href="<?=BASE_URL?>/assets/img/favicon.png" />
 </head>
 
 <?php
@@ -27,7 +27,7 @@
                 $user = $users[0];
                 $_SESSION['Username'] = $user['Username'];
                 $_SESSION['DisplayName'] = $user['Fullname'] == '' ? $user['Username'] : $user['Fullname'];
-                $_SESSION['Avatar'] = !empty($user['Avatar']) ? $user['Avatar'] : '/assets/img/user.png';
+                $_SESSION['Avatar'] = !empty($user['Avatar']) ? $user['Avatar'] : BASE_URL . '/assets/img/user.png';
                 $_SESSION['Role'] = $user['AccountTypeID'];
                 header('Location: admin/index.php');
             } else {

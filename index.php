@@ -73,12 +73,12 @@
                                 <img src="<?=$book['Thumbnail']?>" alt="">
                                 <div class="product-hover">
                                     <?php if (isset($_SESSION['Role']) && $_SESSION['Role'] == 3) {?>
-                                    <a href="<?='/cart.php?id=' . $book['ISBN']?>" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                    <a href="<?=BASE_URL . '/cart.php?id=' . $book['ISBN']?>" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
                                     <?php }?>
-                                    <a href="<?='/book-details.php?id=' . $book['ISBN']?>" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                                    <a href="<?=BASE_URL . '/book-details.php?id=' . $book['ISBN']?>" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
                                 </div>
                             </div>
-                            <h2><a href="<?='/book-details.php?id=' . $book['ISBN']?>"><?=$book['BookTitle']?></a></h2>
+                            <h2><a href="<?=BASE_URL . '/book-details.php?id=' . $book['ISBN']?>"><?=$book['BookTitle']?></a></h2>
                             <div class="product-carousel-price">
                                 <ins><?=Helper::Currency($book['Price'])?></ins>
                             </div>

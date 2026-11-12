@@ -23,7 +23,7 @@
                 <p><b>Số trang: </b><?=$book['PageNumber']?></p>
                 <p><b>Giá: </b><?=number_format($book['Price'])?> ₫</p>
                 <p><b>Ngôn ngữ: </b><?=$book['LanguageName']?></p>
-                <p><b>Danh mục: </b><a href="<?='/category-book.php?CategoryID=' . $book['CategoryID']?>"><?=$book['CategoryName']?></a></p>
+                <p><b>Danh mục: </b><a href="<?=BASE_URL . '/category-book.php?CategoryID=' . $book['CategoryID']?>"><?=$book['CategoryName']?></a></p>
                 <p><b>Nhà xuất bản: </b><?=$book['PublishName']?></p>
                 <p><b>Mô tả: </b><?=$book['Description']?></p>
             </div>

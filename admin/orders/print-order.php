@@ -37,7 +37,7 @@
     <div class="container">
         <div class="text-primary text-center pb-5">
             <h4><b>Cửa hàng bán sách trực tuyến Nhà sách trí tuệ</b></h4>
-            <img class="main-logo" src="<?='/assets/img/nha-sach-tri-tue-logo.svg'?>" alt="Nhà sách trí tuệ">
+            <img class="main-logo" src="<?=BASE_URL?>/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ">
         </div>
         <h3 class="text-primary text-center pb-5"><b>HOÁ ĐƠN</b></h3>
         <div class="pb-5">
@@ -81,7 +81,7 @@
                 <p><b>Phí vận chuyển:</b> 0 ₫</p>
                 <p><b>Tổng tiền:</b> <?=Helper::Currency($order['TotalRevenue'])?></p>
                 <?php if ($order['Status'] == 1) {?>
-                <img style="height: 150px;" src="<?='/assets/img/paid-logo.jpg'?>">
+                <img style="height: 150px;" src="<?=BASE_URL?>/assets/img/paid-logo.jpg">
                 <?php }?>
             </div>
         </div>

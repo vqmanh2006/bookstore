@@ -23,7 +23,7 @@
                             $sql = 'SELECT * FROM categories ORDER BY CategoryID DESC';
                             $categories = Database::GetData($sql);
                             foreach ($categories as $cate) {
-                                echo '<li><a href="/category-book.php?CategoryID=' . $cate['CategoryID'] . '">' . $cate['CategoryName'] . '</a></li>';
+                                echo '<li><a href="' . BASE_URL . '/category-book.php?CategoryID=' . $cate['CategoryID'] . '">' . $cate['CategoryName'] . '</a></li>';
                             }
                         ?>
                     </ul>

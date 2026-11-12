@@ -3,7 +3,9 @@
 <?php
     // Thêm sản phẩm vào giỏ hàng
     if (isset($_GET['id'])) {
-        $sql = "INSERT INTO carts VALUES ('" . $_GET['id'] . "', '" . $_SESSION['Username'] . "', 1, NOW(3))";
+        $sql = "INSERT INTO carts (ISBN, Username, Amount, UpdatedAt)
+                VALUES ('" . $_GET['id'] . "', '" . $_SESSION['Username'] . "', 1, NOW(3))
+                ON DUPLICATE KEY UPDATE Amount = Amount + 1, UpdatedAt = NOW(3)";
         Database::NonQuery($sql);
     }
 

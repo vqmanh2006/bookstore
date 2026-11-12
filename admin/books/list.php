@@ -416,7 +416,7 @@
                                                 <tr>
                                                     <th>' . $book['ISBN'] . '</th>
                                                     <td>' . $book['BookTitle'] . '</td>
-                                                    <td class="text-center"><img height="60" src="' . $book['Thumbnail'] . '" alt="" /></td>
+                                                    <td class="text-center"><img height="60" src="' . AppUrl($book['Thumbnail']) . '" alt="" /></td>
                                                     <td>' . $book['LanguageName'] . '</td>
                                                     <td>' . Helper::Currency($book['Price']) . '</td>
                                                     <td>' . $book['CategoryName'] . '</td>

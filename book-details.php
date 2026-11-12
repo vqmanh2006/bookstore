@@ -11,7 +11,7 @@
     <div class="container">
         <div style="display: flex;">
             <div style="width: 300px; padding: 0 16px;">
-                <img style="height: 320px" src="<?=$book['Thumbnail']?>" alt="Image">
+                <img style="height: 320px" src="<?=AppUrl($book['Thumbnail'])?>" alt="Image">
             </div>
             <div style="padding: 0 16px;">
                 <h3>Thông tin sản phẩm</h3>

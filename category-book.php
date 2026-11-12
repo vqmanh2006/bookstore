@@ -17,7 +17,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="single-shop-product">
                     <div class="product-upper">
-                        <img src="<?=$book['Thumbnail']?>" alt="" style="height: 320px">
+                        <img src="<?=AppUrl($book['Thumbnail'])?>" alt="" style="height: 320px">
                     </div>
                     <h2><a href="<?=BASE_URL . '/book-details.php?id=' . $book['ISBN']?>"><?=$book['BookTitle']?></a></h2>
                     <div class="product-carousel-price">

@@ -236,7 +236,7 @@
                                                     <th>' . $slider['SliderID'] . '</th>
                                                     <td>' . $slider['SliderName'] . '</td>
                                                     <td>' . $slider['Description'] . '</td>
-                                                    <td><img height="60" src="' . $slider['Thumbnail'] . '" alt="" /></td>
+                                                    <td><img height="60" src="' . AppUrl($slider['Thumbnail']) . '" alt="" /></td>
                                                     <td>' . Helper::StatusBadge($slider['Status']) . '</td>
                                                     <td>
                                                         <a href="?edit-id=' . $slider['SliderID'] . '"class="btn btn-warning"><i class="fas fa-marker"></i></a>

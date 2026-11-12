@@ -9,7 +9,7 @@
                 if ($sliders) {
                     foreach ($sliders as $slider) {
                         echo '<li>
-                                <img src="' . $slider['Thumbnail'] . '" alt="Slide">
+                                <img src="' . AppUrl($slider['Thumbnail']) . '" alt="Slide">
                                 <div class="caption-group">
                                     <h2 class="caption title">' . $slider['SliderName'] . '</h2>
                                     <h4 class="caption subtitle">' . $slider['Description'] . '</h4>
@@ -70,7 +70,7 @@
                             ?>
                         <div class="single-product">
                             <div class="product-f-image">
-                                <img src="<?=$book['Thumbnail']?>" alt="">
+                                <img src="<?=AppUrl($book['Thumbnail'])?>" alt="">
                                 <div class="product-hover">
                                     <?php if (isset($_SESSION['Role']) && $_SESSION['Role'] == 3) {?>
                                     <a href="<?=BASE_URL . '/cart.php?id=' . $book['ISBN']?>" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>

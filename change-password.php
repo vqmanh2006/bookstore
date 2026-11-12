@@ -37,7 +37,7 @@
 ?>
 
 <body class="profile__bg d-flex-center">
-    <img class="profile__avatar" src="<?=$_SESSION['Avatar']?>" alt="Avatar">
+    <img class="profile__avatar" src="<?=AppUrl($_SESSION['Avatar'])?>" alt="Avatar">
     <div class="profile__form">
         <div class="profile__form--header">
             <h3>Đổi mật khẩu</h3>

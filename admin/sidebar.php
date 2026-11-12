@@ -8,7 +8,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <?php $avatar = empty($_SESSION['Avatar']) ? BASE_URL . '/assets/img/user.png' : $_SESSION['Avatar'];?>
+                <?php $avatar = AppUrl(empty($_SESSION['Avatar']) ? '/assets/img/user.png' : $_SESSION['Avatar']);?>
                 <img src="<?=$avatar?>" class="img-circle elevation-2" alt="User image">
             </div>
             <div class="info">

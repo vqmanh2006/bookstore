@@ -160,7 +160,7 @@
                                                     <td>' . $user['Fullname'] . '</td>
                                                     <td>' . Helper::Phone($user['Phone']) . '</td>
                                                     <td>' . $user['Email'] . '</td>
-                                                    <td><img height="50" src="' . $user['Avatar'] . '" alt="" /></td>
+                                                    <td><img height="50" src="' . AppUrl($user['Avatar']) . '" alt="" /></td>
                                                     <td>' . Helper::Currency($user['Money']) . '</td>
                                                     <td>' . Helper::StatusBadge($user['Status']) . '</td>
                                                     <td>' . Helper::AccountTypeBadge($user['AccountTypeID']) . '</td>

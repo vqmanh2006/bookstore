@@ -97,7 +97,7 @@
                             <tr class="cart_item">
                                 <td class="product-name"><?=$cart['ISBN']?></td>
                                 <td class="product-name"><?=$cart['BookTitle']?></td>
-                                <td class="product-thumbnail"><img class="shop_thumbnail" src="<?=$cart['Thumbnail']?>"></td>
+                                <td class="product-thumbnail"><img class="shop_thumbnail" src="<?=AppUrl($cart['Thumbnail'])?>"></td>
                                 <td class="product-name"><?=Helper::Currency($cart['Price'])?></td>
                                 <td class="product-quantity">
                                     <div class="quantity buttons_added">

@@ -1844,6 +1844,32 @@ body {
     margin: 0;
 }
 
+.store-page-title {
+    color: #172554;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 28px;
+}
+
+.product-detail-actions {
+    margin: 22px 0;
+}
+
+.detail-buy-button {
+    background: linear-gradient(135deg, #f58220, #f52257);
+    border-radius: 7px;
+    color: #fff !important;
+    display: inline-block;
+    font-weight: 600;
+    padding: 12px 22px;
+    text-decoration: none !important;
+}
+
+.detail-buy-button:hover {
+    box-shadow: 0 8px 18px rgba(245, 82, 87, .22);
+    transform: translateY(-1px);
+}
+
 @media only screen and (max-width: 991px) {
     .site-header {
         flex-wrap: wrap;

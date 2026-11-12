@@ -2,6 +2,7 @@
 <div class="single-product-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
+        <h2 class="store-page-title">Mua hàng</h2>
         <div class="row">
             <?php
                 $keyword = isset($_GET['keyword']) ? "WHERE BookTitle LIKE '%" . $_GET['keyword'] . "%'" : '';

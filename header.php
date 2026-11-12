@@ -122,6 +122,9 @@
                         <li><a href="<?=BASE_URL?>/category-book.php">Danh mục</a></li>
                         <li><a href="<?=BASE_URL?>/shop.php">Sách mới</a></li>
                         <li><a href="<?=BASE_URL?>/cart.php">Giỏ hàng</a></li>
+                        <?php if (isset($_SESSION['Username'])) {?>
+                        <li><a href="<?=BASE_URL?>/my-orders.php">Đơn hàng của tôi</a></li>
+                        <?php }?>
                     </ul>
                 </div>
             </div>

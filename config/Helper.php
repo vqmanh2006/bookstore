@@ -33,7 +33,13 @@ class Helper
 
     public static function PaymentBadge($value)
     {
-        return $value == 1 ? "<span class='badge badge-success'>Đã thanh toán</span>" : "<span class='badge badge-warning'>Chưa thanh toán</span>";
+        if ($value == 1) {
+            return "<span class='badge badge-success'>Đã thanh toán</span>";
+        }
+        if ($value == 2) {
+            return "<span class='badge badge-danger'>Đã hủy</span>";
+        }
+        return "<span class='badge badge-warning'>Chưa thanh toán</span>";
     }
 
     public static function AccountTypeBadge($value)

@@ -13,7 +13,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item">
-                            <a href="<?=ADMIN_URL?>/dasboard/"><i class="fas fa-home"></i></a>
+                            <a href="<?=ADMIN_URL?>/dashboard/index.php"><i class="fas fa-home"></i></a>
                         </li>
                         <li class="breadcrumb-item active">Bảng điều khiển</li>
                     </ol>

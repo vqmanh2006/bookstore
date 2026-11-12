@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="<?=ADMIN_URL?>/dasboard/" class="brand-link">
+    <a href="<?=ADMIN_URL?>/dashboard/index.php" class="brand-link">
         <img src="<?=BASE_URL?>/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="width: 100%">
     </a>
 
@@ -32,7 +32,7 @@
         <nav class="mt-2" style="height: calc(100% - 74px)">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="<?=ADMIN_URL?>/dashboard/" class="nav-link">
+                    <a href="<?=ADMIN_URL?>/dashboard/index.php" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Bảng điều khiển</p>
                     </a>

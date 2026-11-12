@@ -1,7 +1,7 @@
-<?php session_start()?>
-<?php include 'config/config.php'?>
-<?php include 'config/database.php'?>
-<?php include 'config/Helper.php'?>
+<?php if (session_status() === PHP_SESSION_NONE) session_start()?>
+<?php include_once 'config/config.php'?>
+<?php include_once 'config/database.php'?>
+<?php include_once 'config/Helper.php'?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1870,6 +1870,20 @@ body {
     transform: translateY(-1px);
 }
 
+.order-success-message {
+    background: #ecfdf5;
+    border: 1px solid #86efac;
+    border-left: 5px solid #22c55e;
+    border-radius: 8px;
+    color: #166534;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+}
+
+.order-success-message i {
+    margin-right: 8px;
+}
+
 @media only screen and (max-width: 991px) {
     .site-header {
         flex-wrap: wrap;

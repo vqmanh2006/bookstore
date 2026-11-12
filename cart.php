@@ -1,6 +1,13 @@
-<?php include 'header.php'?>
-
 <?php
+    include_once 'config/config.php';
+    include_once 'config/database.php';
+    include_once 'config/Helper.php';
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $createdOrderID = null;
+
     // Thêm sản phẩm vào giỏ hàng
     if (isset($_GET['id'])) {
         $sql = "INSERT INTO carts (ISBN, Username, Amount, UpdatedAt)
@@ -55,9 +62,19 @@
 
             $sql = "DELETE FROM carts WHERE Username = '" . $_SESSION['Username'] . "'";
             Database::NonQuery($sql);
+
+            $_SESSION['OrderSuccess'] = $orderID;
+            header('Location: ' . BASE_URL . '/cart.php');
+            exit;
         }
     }
+
+    if (isset($_SESSION['OrderSuccess'])) {
+        $createdOrderID = $_SESSION['OrderSuccess'];
+        unset($_SESSION['OrderSuccess']);
+    }
 ?>
+<?php include 'header.php'?>
 <div class="product-big-title-area">
     <div class="container">
         <div class="row">
@@ -73,6 +90,13 @@
 <div class="single-product-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
+        <?php if ($createdOrderID) {?>
+        <div class="order-success-message">
+            <i class="fas fa-check-circle"></i>
+            Tạo đơn hàng thành công! Mã đơn hàng:
+            <strong><?=htmlspecialchars($createdOrderID)?></strong>
+        </div>
+        <?php }?>
         <div class="product-content-right">
             <div class="woocommerce">
                 <form method="post" action="#">

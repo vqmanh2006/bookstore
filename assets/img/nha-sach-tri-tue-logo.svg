@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 180" role="img" aria-labelledby="title desc">
+  <title id="title">Nhà sách trí tuệ</title>
+  <desc id="desc">Logo Nhà sách trí tuệ</desc>
+  <path d="M24 142c125 42 264 39 395-7 92-32 174-31 257 3" fill="none" stroke="#f4c400" stroke-linecap="round" stroke-width="10"/>
+  <path d="M26 40c116 40 242 42 365 8 111-31 207-29 282 2" fill="none" stroke="#f4c400" stroke-linecap="round" stroke-width="10"/>
+  <text x="350" y="106" fill="#f4c400" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" text-anchor="middle" stroke="#162b49" stroke-linejoin="round" stroke-width="8" paint-order="stroke">
+    Nhà sách trí tuệ
+  </text>
+</svg>

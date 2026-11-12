@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BHT Bookstore</title>
+    <title>Nhà sách trí tuệ</title>
     <link rel="icon" href="/assets/img/favicon.png" />
 
     <!-- Google Fonts -->
@@ -87,7 +87,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="logo">
-                        <h1><a href="./"><img src="/assets/img/bht_bookstore_logo.png" style="height: 60px"></a></h1>
+                        <h1><a href="./"><img src="/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="height: 60px"></a></h1>
                     </div>
                 </div>
 

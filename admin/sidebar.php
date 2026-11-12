@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="<?=ADMIN_URL?>/dasboard/" class="brand-link">
-        <img src="/assets/img/bht_bookstore_logo.png" alt="BHT Bookstore" style="width: 100%">
+        <img src="/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="width: 100%">
     </a>
 
     <!-- Sidebar -->

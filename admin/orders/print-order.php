@@ -36,8 +36,8 @@
 <body>
     <div class="container">
         <div class="text-primary text-center pb-5">
-            <h4><b>Cửa hàng bán sách trực tuyến BHT Bookstore</b></h4>
-            <img class="main-logo" src="<?='/assets/img/bht_bookstore_logo.png'?>" alt="Image">
+            <h4><b>Cửa hàng bán sách trực tuyến Nhà sách trí tuệ</b></h4>
+            <img class="main-logo" src="<?='/assets/img/nha-sach-tri-tue-logo.svg'?>" alt="Nhà sách trí tuệ">
         </div>
         <h3 class="text-primary text-center pb-5"><b>HOÁ ĐƠN</b></h3>
         <div class="pb-5">

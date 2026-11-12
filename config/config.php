@@ -7,6 +7,16 @@ if ($projectRoot !== false && $documentRoot !== false && strpos($projectRoot, $d
     $baseUrl = rtrim(str_replace(DIRECTORY_SEPARATOR, '/', substr($projectRoot, strlen($documentRoot))), '/');
 }
 
+if ($baseUrl === '') {
+    $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+    $firstSegment = trim(explode('/', ltrim((string) $requestPath, '/'))[0]);
+    $projectName = $projectRoot !== false ? basename($projectRoot) : '';
+
+    if ($firstSegment !== '' && $projectName !== '' && strcasecmp($firstSegment, $projectName) === 0) {
+        $baseUrl = '/' . $firstSegment;
+    }
+}
+
 define('BASE_URL', $baseUrl);
 define('ADMIN_URL', BASE_URL . '/admin');
 define('ADMIN_TEMPLATE_URL', BASE_URL . '/assets/Admin-LTE');

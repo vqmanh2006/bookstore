@@ -65,58 +65,44 @@
 
 <body>
     <div class="header-area">
-        <div class="container">
-            <div class="user-menu">
-                <ul>
-                    <?php if (isset($_SESSION['Role']) && $_SESSION['Role'] == '1') {?>
-                    <li><a href="<?=BASE_URL?>/admin/dashboard/index.php"><i class="fas fa-user-shield"></i> Trang quản trị</a></li>
-                    <?php }if (isset($_SESSION['Role'])) {?>
-                    <li><a href="<?=BASE_URL?>/profile.php"><i class="fas fa-user"></i> <?=$_SESSION['DisplayName']?></a></li>
-                    <li><a href="<?=BASE_URL?>/logout.php"><i class="fas fa-sign-in-alt"></i> Đăng xuất</a></li>
-                    <?php } else {?>
-                    <li><a href="<?=BASE_URL?>/sign.php"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
-                    <li><a href="<?=BASE_URL?>/sign.php"><i class="fas fa-user"></i> Đăng ký</a></li>
-                    <?php }?>
-                </ul>
+        <div class="container site-header">
+            <div class="logo">
+                <h1><a href="<?=BASE_URL?>/"><img src="<?=BASE_URL?>/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ"></a></h1>
+            </div>
+
+            <form class="form-search" action="<?=BASE_URL?>/shop.php">
+                <input name="keyword" placeholder="Bạn muốn tìm sách gì?">
+                <button class="btn" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+            </form>
+
+            <?php
+                $totalMoney = 0;
+                $countItem = 0;
+                if (isset($_SESSION['Username'])) {
+                    $sql = "SELECT SUM(Amount * Price) FROM carts, books WHERE carts.ISBN = books.ISBN AND Username = '" . $_SESSION['Username'] . "'";
+                    $totalMoney = Database::GetData($sql, ['row' => 0, 'cell' => 0]);
+                    $sql = "SELECT count(*) FROM carts WHERE Username = '" . $_SESSION['Username'] . "'";
+                    $countItem = Database::GetData($sql, ['row' => 0, 'cell' => 0]);
+                }
+            ?>
+            <div class="header-actions">
+                <?php if (isset($_SESSION['Role']) && $_SESSION['Role'] == '1') {?>
+                <a class="header-action-link" href="<?=BASE_URL?>/admin/dashboard/index.php"><i class="fas fa-user-shield"></i></a>
+                <?php }?>
+                <?php if (isset($_SESSION['Role'])) {?>
+                <a class="header-button" href="<?=BASE_URL?>/profile.php"><?=$_SESSION['DisplayName']?></a>
+                <a class="header-button" href="<?=BASE_URL?>/logout.php">Đăng xuất</a>
+                <?php } else {?>
+                <a class="header-button" href="<?=BASE_URL?>/sign.php">Đăng ký</a>
+                <a class="header-button" href="<?=BASE_URL?>/sign.php">Đăng nhập</a>
+                <?php }?>
+                <a class="shopping-item" href="<?=BASE_URL?>/cart.php">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="product-count"><?=$countItem?></span>
+                </a>
             </div>
         </div>
-    </div> <!-- End header area -->
-
-    <div class="site-branding-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="logo">
-                        <h1><a href="<?=BASE_URL?>/"><img src="<?=BASE_URL?>/assets/img/nha-sach-tri-tue-logo.svg" alt="Nhà sách trí tuệ" style="height: 60px"></a></h1>
-                    </div>
-                </div>
-
-                <form class="col-sm-6 form-search" action="shop.php">
-                    <input name="keyword" placeholder="Từ khoá">
-                    <button class="btn"><i class="glyphicon glyphicon-search"></i></button>
-                </form>
-
-                <?php
-                    $totalMoney = 0;
-                    $countItem = 0;
-                    if (isset($_SESSION['Username'])) {
-                        $sql = "SELECT SUM(Amount * Price) FROM carts, books WHERE carts.ISBN = books.ISBN AND Username = '" . $_SESSION['Username'] . "'";
-                        $totalMoney = Database::GetData($sql, ['row' => 0, 'cell' => 0]);
-                        $sql = "SELECT count(*) FROM carts WHERE Username = '" . $_SESSION['Username'] . "'";
-                        $countItem = Database::GetData($sql, ['row' => 0, 'cell' => 0]);
-                    }
-                ?>
-                <div class="col-sm-3">
-                    <div class="shopping-item">
-                        <a href="<?=BASE_URL?>/cart.php">Giỏ hàng - <span class="cart-amunt"><?=Helper::Currency($totalMoney)?></span>
-                            <i class="fa fa-shopping-cart"></i>
-                            <span class="product-count"><?=$countItem?></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End site branding area -->
+    </div>
 
     <div class="mainmenu-area">
         <div class="container">
@@ -131,9 +117,11 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="./">Trang chủ</a></li>
+                        <li><a href="<?=BASE_URL?>/">Trang chủ</a></li>
                         <li><a href="<?=BASE_URL?>/shop.php">Mua hàng</a></li>
                         <li><a href="<?=BASE_URL?>/category-book.php">Danh mục</a></li>
+                        <li><a href="<?=BASE_URL?>/shop.php">Sách mới</a></li>
+                        <li><a href="<?=BASE_URL?>/cart.php">Giỏ hàng</a></li>
                     </ul>
                 </div>
             </div>

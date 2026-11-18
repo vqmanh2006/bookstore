@@ -1,6 +1,35 @@
 <?php
 class Helper
 {
+    public static function UploadImage($fieldName)
+    {
+        if (!isset($_FILES[$fieldName]) || $_FILES[$fieldName]['error'] !== UPLOAD_ERR_OK) {
+            return '';
+        }
+
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        $mimeType = mime_content_type($_FILES[$fieldName]['tmp_name']);
+        if (!in_array($mimeType, $allowedTypes, true)) {
+            return '';
+        }
+
+        $uploadDirectory = dirname(__DIR__) . '/uploads';
+        if (!is_dir($uploadDirectory)) {
+            mkdir($uploadDirectory, 0777, true);
+        }
+
+        $extension = pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
+        $extension = strtolower(preg_replace('/[^a-z0-9]/i', '', $extension));
+        $fileName = uniqid('img_', true) . ($extension !== '' ? '.' . $extension : '');
+        $targetPath = $uploadDirectory . '/' . $fileName;
+
+        if (!move_uploaded_file($_FILES[$fieldName]['tmp_name'], $targetPath)) {
+            return '';
+        }
+
+        return '/uploads/' . $fileName;
+    }
+
     public static function Currency($value)
     {
         return number_format($value, 0, ',', '.') . ' ₫';

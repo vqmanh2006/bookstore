@@ -3,12 +3,7 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Add images
-        $image_path = '';
-        if (isset($_FILES['pic'])) {
-            $image_size = $_FILES['pic']['size'];
-            $image_path = '/uploads/' . $_FILES['pic']['name'];
-            move_uploaded_file($_FILES['pic']['tmp_name'], '../../' . $image_path);
-        }
+        $image_path = Helper::UploadImage('pic');
 
         // Add items
         if (isset($_POST['action']) && $_POST['action'] == 'add') {
@@ -41,7 +36,7 @@
             $status = isset($_POST['status']) ? $_POST['status'] : '';
 
             if (!empty($name)) {
-                $thumbnail_sql = $image_path != '/uploads/' ? "Thumbnail = '$image_path', " : '';
+                $thumbnail_sql = $image_path !== '' ? "Thumbnail = '$image_path', " : '';
                 $sql = "UPDATE sliders SET SliderName = '$name', Description = '$description', $thumbnail_sql Status = $status WHERE SliderID = $id";
                 if (Database::NonQuery($sql)) {
                     $message = [

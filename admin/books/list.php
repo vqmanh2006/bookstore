@@ -3,12 +3,7 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Add images
-        $image_path = '';
-        if (isset($_FILES['pic'])) {
-            $image_size = $_FILES['pic']['size'];
-            $image_path = '/uploads/' . $_FILES['pic']['name'];
-            move_uploaded_file($_FILES['pic']['tmp_name'], '../../' . $image_path);
-        }
+        $image_path = Helper::UploadImage('pic');
 
         // Add items
         if (isset($_POST['action']) && $_POST['action'] == 'add') {
@@ -57,7 +52,7 @@
             $publish = isset($_POST['publish']) ? $_POST['publish'] : '';
 
             if (!empty($name)) {
-                $thumbnail_sql = $image_path != '/uploads/' ? "Thumbnail = '$image_path', " : '';
+                $thumbnail_sql = $image_path !== '' ? "Thumbnail = '$image_path', " : '';
                 $sql = "UPDATE books SET $thumbnail_sql BookTitle = '$name', Description = '$description', PublishYear = '$publish_year', Weight = '$weight', Size = '$size_width x $size_height', PageNumber = $page, LanguageID = '$language', Price = $price, CategoryID = $category, PublishID = $publish, UpdatedAt = NOW(3) WHERE ISBN = $id";
 
                 if (Database::NonQuery($sql)) {

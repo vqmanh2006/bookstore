@@ -13,13 +13,8 @@ class ProfileController extends Controller
         $message = null;
 
         if (isset($_POST['submit'])) {
-            if (!empty($_FILES['avatar']['name'])) {
-                $imagePath = '/uploads/' . basename($_FILES['avatar']['name']);
-                $uploadDir = dirname(__DIR__, 2) . '/uploads';
-                if (!is_dir($uploadDir)) {
-                    mkdir($uploadDir, 0777, true);
-                }
-                move_uploaded_file($_FILES['avatar']['tmp_name'], dirname(__DIR__, 2) . $imagePath);
+            $imagePath = \Helper::UploadImage('avatar');
+            if ($imagePath !== '') {
                 \Database::NonQuery("UPDATE users SET Avatar = '$imagePath' WHERE Username = '" . addslashes($_SESSION['Username']) . "'");
                 $_SESSION['Avatar'] = AppUrl($imagePath);
             }

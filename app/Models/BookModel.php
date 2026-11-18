@@ -43,4 +43,9 @@ class BookModel
         $categoryID = (int) $categoryID;
         return \Database::GetData("SELECT CategoryName FROM categories WHERE CategoryID = $categoryID", ['row' => 0, 'cell' => 0]);
     }
+
+    public function categories()
+    {
+        return \Database::GetData('SELECT * FROM categories ORDER BY CategoryName');
+    }
 }

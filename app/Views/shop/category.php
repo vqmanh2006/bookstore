@@ -2,7 +2,13 @@
 <div class="single-product-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
-        <h1 class="text-primary text-center"><?=htmlspecialchars($categoryName ?: 'Danh mục')?></h1>
+        <div class="category-filter">
+            <strong>Thể loại:</strong>
+            <?php foreach ($categories as $category) {?>
+            <a class="<?=isset($_GET['CategoryID']) && $_GET['CategoryID'] == $category['CategoryID'] ? 'active' : ''?>" href="<?=BASE_URL . '/category-book.php?CategoryID=' . (int) $category['CategoryID']?>"><?=htmlspecialchars($category['CategoryName'])?></a>
+            <?php }?>
+        </div>
+        <h1 class="text-primary text-center"><?=htmlspecialchars($categoryName ?: 'Thể loại')?></h1>
         <div class="row">
             <?php foreach ($books as $book) {?>
             <div class="col-md-3 col-sm-6">

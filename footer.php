@@ -17,7 +17,7 @@
 
             <div class="col-md-4 col-sm-6">
                 <div class="footer-menu">
-                    <h2 class="footer-wid-title">Danh mục</h2>
+                    <h2 class="footer-wid-title">Thể loại</h2>
                     <ul>
                         <?php
                             $sql = 'SELECT * FROM categories ORDER BY CategoryID DESC';

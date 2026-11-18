@@ -24,7 +24,7 @@
                     <?php }?>
                 </div>
                 <p><b>Ngôn ngữ:</b> <?=$book['LanguageName']?></p>
-                <p><b>Danh mục:</b> <?=$book['CategoryName']?></p>
+                <p><b>Thể loại:</b> <?=$book['CategoryName']?></p>
                 <p><b>Nhà xuất bản:</b> <?=$book['PublishName']?></p>
                 <p><b>Mô tả:</b> <?=htmlspecialchars($book['Description'])?></p>
             </div>

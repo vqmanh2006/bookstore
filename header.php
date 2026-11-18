@@ -119,7 +119,19 @@
                     <ul class="nav navbar-nav">
                         <li><a href="<?=BASE_URL?>/">Trang chủ</a></li>
                         <li><a href="<?=BASE_URL?>/shop.php">Mua hàng</a></li>
-                        <li><a href="<?=BASE_URL?>/category-book.php">Danh mục</a></li>
+                        <li class="dropdown">
+                            <a href="<?=BASE_URL?>/category-book.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Thể loại <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <?php
+                                    $mvcCategories = Database::GetData('SELECT * FROM categories ORDER BY CategoryName');
+                                    if ($mvcCategories) {
+                                        foreach ($mvcCategories as $mvcCategory) {
+                                            echo '<li><a href="' . BASE_URL . '/category-book.php?CategoryID=' . (int) $mvcCategory['CategoryID'] . '">' . htmlspecialchars($mvcCategory['CategoryName']) . '</a></li>';
+                                        }
+                                    }
+                                ?>
+                            </ul>
+                        </li>
                         <li><a href="<?=BASE_URL?>/shop.php">Sách mới</a></li>
                         <li><a href="<?=BASE_URL?>/cart.php">Giỏ hàng</a></li>
                         <?php if (isset($_SESSION['Username'])) {?>

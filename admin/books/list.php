@@ -7,9 +7,9 @@
 
         // Add items
         if (isset($_POST['action']) && $_POST['action'] == 'add') {
-            $isbn = isset($_POST['isbn']) ? $_POST['isbn'] : '';
-            $name = isset($_POST['name']) ? $_POST['name'] : '';
-            $description = isset($_POST['description']) ? $_POST['description'] : '';
+            $isbn = isset($_POST['isbn']) ? trim($_POST['isbn']) : '';
+            $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+            $description = isset($_POST['description']) ? trim($_POST['description']) : '';
             $publish_year = isset($_POST['publish_year']) ? $_POST['publish_year'] : '';
             $weight = isset($_POST['weight']) ? $_POST['weight'] : '';
             $size_width = isset($_POST['size_width']) ? $_POST['size_width'] : '';
@@ -20,14 +20,25 @@
             $category = isset($_POST['category']) ? $_POST['category'] : '';
             $publish = isset($_POST['publish']) ? $_POST['publish'] : '';
 
-            if (!empty($name)) {
-                $sql = "INSERT INTO books VALUES ('$isbn', '$name', '$description', $publish_year, $weight, '$size_width x $size_height', $page, '$image_path', '$language', $price, 0, 0, $category, $publish, NOW(3))";
-                if (Database::NonQuery($sql)) {
-                    $message = [
-                        'type' => 'success',
-                        'text' => 'Thêm thành công',
-                    ];
-                }
+            $existing = $isbn !== ''
+                ? Database::GetData("SELECT ISBN FROM books WHERE ISBN = '" . addslashes($isbn) . "'", ['row' => 0])
+                : null;
+
+            if ($isbn === '') {
+                $message = [
+                    'type' => 'warning',
+                    'text' => 'ISBN không được trống',
+                ];
+            } elseif ($existing) {
+                $message = [
+                    'type' => 'danger',
+                    'text' => 'ISBN này đã tồn tại trong hệ thống',
+                ];
+            } elseif (!empty($name)) {
+                $sql = "INSERT INTO books VALUES ('" . addslashes($isbn) . "', '" . addslashes($name) . "', '" . addslashes($description) . "', " . (int) $publish_year . ", " . (int) $weight . ", '" . addslashes("$size_width x $size_height") . "', " . (int) $page . ", '" . addslashes($image_path) . "', '" . addslashes($language) . "', " . (float) $price . ", 0, 0, " . (int) $category . ", " . (int) $publish . ", NOW(3))";
+                $message = Database::NonQuery($sql)
+                    ? ['type' => 'success', 'text' => 'Thêm thành công']
+                    : ['type' => 'danger', 'text' => 'Không thể thêm sách'];
             } else {
                 $message = [
                     'type' => 'warning',
@@ -53,7 +64,7 @@
 
             if (!empty($name)) {
                 $thumbnail_sql = $image_path !== '' ? "Thumbnail = '$image_path', " : '';
-                $sql = "UPDATE books SET $thumbnail_sql BookTitle = '$name', Description = '$description', PublishYear = '$publish_year', Weight = '$weight', Size = '$size_width x $size_height', PageNumber = $page, LanguageID = '$language', Price = $price, CategoryID = $category, PublishID = $publish, UpdatedAt = NOW(3) WHERE ISBN = $id";
+                $sql = "UPDATE books SET $thumbnail_sql BookTitle = '" . addslashes($name) . "', Description = '" . addslashes($description) . "', PublishYear = " . (int) $publish_year . ", Weight = " . (int) $weight . ", Size = '" . addslashes("$size_width x $size_height") . "', PageNumber = " . (int) $page . ", LanguageID = '" . addslashes($language) . "', Price = " . (float) $price . ", CategoryID = " . (int) $category . ", PublishID = " . (int) $publish . ", UpdatedAt = NOW(3) WHERE ISBN = '" . addslashes($id) . "'";
 
                 if (Database::NonQuery($sql)) {
                     $message = [
@@ -73,7 +84,7 @@
     // Delete items
     if (isset($_GET['del-id'])) {
         $id = isset($_GET['del-id']) ? $_GET['del-id'] : '';
-        $sql = "DELETE FROM books WHERE ISBN = $id";
+        $sql = "DELETE FROM books WHERE ISBN = '" . addslashes($id) . "'";
 
         if (Database::NonQuery($sql)) {
             $message = [
@@ -234,7 +245,7 @@
             $id = isset($_GET['edit-id']) ? $_GET['edit-id'] : '';
             $book = [];
             if ($id != '') {
-                $sql = "SELECT * FROM books WHERE ISBN = $id";
+                $sql = "SELECT * FROM books WHERE ISBN = '" . addslashes($id) . "'";
                 $book = Database::GetData($sql, ['row' => 0]);
             }
         ?>

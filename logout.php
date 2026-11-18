@@ -1,4 +1,3 @@
 <?php
-session_start();
-session_destroy();
-header('Location: sign.php');
+require_once __DIR__ . '/app/bootstrap.php';
+(new App\Controllers\AuthController())->logout();

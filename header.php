@@ -1,7 +1,7 @@
 <?php if (session_status() === PHP_SESSION_NONE) session_start()?>
-<?php include_once 'config/config.php'?>
-<?php include_once 'config/database.php'?>
-<?php include_once 'config/Helper.php'?>
+<?php include_once __DIR__ . '/config/config.php'?>
+<?php include_once __DIR__ . '/config/database.php'?>
+<?php include_once __DIR__ . '/config/Helper.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
